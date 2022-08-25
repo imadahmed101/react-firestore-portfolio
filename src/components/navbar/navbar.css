@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    width: cover;
+    background-color: black;
+    height: 30px;
+}
+
+.navbaritem {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    margin-right: 15px;
+    margin-left: 5px;
+    align-items: center;
+}
