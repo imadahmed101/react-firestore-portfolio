@@ -21,9 +21,6 @@ const Portfolio = () => {
             return(
               <div>
                 <h2>{port.name}</h2>
-                <img src={port.image} height="100px" width="100px"/>
-                <p>{port.description}</p>
-                <button onClick={() => window.open(port.url)}>View</button>
               </div>
             )
           })}
@@ -33,7 +30,6 @@ const Portfolio = () => {
 
   return (
     <div>
-      <h1>Portfolio</h1>
       <div>
         {renderPortfolio(portfolio)}
       </div>
