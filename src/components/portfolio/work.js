@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../firebase'
-import {collection, getDocs, addDoc, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
 
-const Work = () => {
-    const [newWork, setNewWork] = useState('');
-    const [newWorkDate, setNewWorkDate] = useState(0)
-    
+const Work = () => {    
     const [work, setWork] = useState([]);
     const workRef = collection(db, "work");
 
-    const createWork = async () => {
-        await addDoc(workRef, {name: newWork, age: Number(newWorkDate)});
-    }
 
     const updateWork = async (id, age) => {
         const userDoc = doc(db, "work", id);
@@ -38,15 +32,12 @@ const Work = () => {
 
   return (
     <div>
-        <input placeholder="Company Name..." onChange={(event) => {setNewWork(event.target.value)}}/>
-        <input type="number" placeholder="Start Date..." onChange={(event) => {setNewWorkDate(event.target.value)}}/>
-        <button onClick={createWork}>Add Job</button>
         {work.map((wrk) => {
             return (
                 <div>
                     {" "}
-                    <h1>Name: {wrk.name}</h1>
-                    <h1>Age: {wrk.age}</h1>
+                    <p>Name: {wrk.name}</p>
+                    <p>Age: {wrk.age}</p>
                     <button onClick={() => {updateWork(wrk.id, wrk.age);}}>Increase Age</button>
                     <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>
                 </div>
