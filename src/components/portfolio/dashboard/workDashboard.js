@@ -60,7 +60,7 @@ const WorkDashboard = () => {
                     {" "}
                     <p>Name: {wrk.name}</p>
                     <p>Role: {wrk.role}</p>
-                    <p>Age: {wrk.age}</p>
+                    <p>Years Worked: {wrk.age}</p>
                     <br/>
                     <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
                     <button onClick={() => {updateName(wrk.id);}}>Update Company</button>
@@ -68,7 +68,7 @@ const WorkDashboard = () => {
                     <input placeholder="Update Role..." onChange={(event) => {setNewRole(event.target.value)}}/>
                     <button onClick={() => {updateRole(wrk.id);}}>Update Role</button>
                     <br/>
-                    <input type="number" placeholder="Update Age..." onChange={(event) => {setNewAge(event.target.value)}}/>
+                    <input type="number" placeholder="Update Years Worked..." onChange={(event) => {setNewAge(event.target.value)}}/>
                     <button onClick={() => {updateAge(wrk.id);}}>Update Age</button>
                     <br/>
                     <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>

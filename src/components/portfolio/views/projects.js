@@ -23,7 +23,7 @@ const Portfolio = () => {
               <div>
                 <h2>{port.name}</h2>
                 <img src={port.image} height="400px" width="400px"/>
-                <p>{port.description}</p>
+                <p className="project-description">{port.description}</p>
                 <button onClick={() => window.open(port.url)}>View</button>
               </div>
             )
@@ -34,7 +34,7 @@ const Portfolio = () => {
 
   return (
     <div className='projects'>
-      <h1>Projects</h1>
+      <h1 className='projects-header'>Projects</h1>
       <div>
         {renderPortfolio(portfolio)}
       </div>

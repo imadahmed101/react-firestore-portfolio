@@ -6,3 +6,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.work h2 {
+    color: rgb(201, 201, 201);
+}
+
+.work h4 {
+    color: rgb(155, 155, 155);
+}

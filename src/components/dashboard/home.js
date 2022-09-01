@@ -6,6 +6,10 @@ import AboutDashboard from '../portfolio/dashboard/aboutDashboard.js'
 import WorkDashboard from '../portfolio/dashboard/workDashboard'
 import ProjectsDashboard from '../portfolio/dashboard/projectsDashboard'
 import './dashboard.css'
+import SkillsForm from '../portfolio/forms/skillsForm'
+import SkillsDashboard from '../portfolio/dashboard/skillsDashboard'
+import BiographyForm from '../portfolio/forms/biographyForm'
+import BiographyDashboard from '../portfolio/dashboard/biographyDashboard copy'
 
 const Home = () => {
 
@@ -21,6 +25,26 @@ const Home = () => {
       <AboutForm />
       <br/>
       <AboutDashboard/>
+      <br/>
+      <br/>
+      <br/>
+
+      <hr />
+      <h2>Biography</h2>
+      <hr />
+      <BiographyForm />
+      <br/>
+      <BiographyDashboard/>
+      <br/>
+      <br/>
+      <br/>
+
+      <hr />
+      <h2>Skills</h2>
+      <hr />
+      <SkillsForm />
+      <br/>
+      <SkillsDashboard/>
       <br/>
       <br/>
       <br/>
