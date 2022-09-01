@@ -19,10 +19,19 @@
     text-align: center;
 }
 
+.projects-image {
+    height: 400px;
+    width: 400px;
+}
+
 @media only screen and (max-width: 1000px) { 
     .projects-list{
         grid-template-columns: 1fr;
         text-align: center;
         margin: 80px 0px;
+    }
+    .projects-image {
+        height: 300px;
+        width: 300px;
     }
 }

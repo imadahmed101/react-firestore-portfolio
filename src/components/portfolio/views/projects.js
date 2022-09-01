@@ -22,7 +22,7 @@ const Portfolio = () => {
             return(
               <div>
                 <h2>{port.name}</h2>
-                <img src={port.image} height="400px" width="400px"/>
+                <img className="projects-image" src={port.image}/>
                 <p className="project-description">{port.description}</p>
                 <button onClick={() => window.open(port.url)}>View</button>
               </div>
