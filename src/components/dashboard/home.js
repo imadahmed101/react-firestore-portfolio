@@ -1,18 +1,16 @@
 import { auth } from '../../firebase'
-import AboutNameOnly from '../portfolio/aboutNameOnly.js'
-import ProjectsNameOnly from '../portfolio/projectsNameOnly.js'
-import Work from '../portfolio/work.js'
 import WorkForm from '../portfolio/forms/workForm.js'
 import AboutForm from '../portfolio/forms/aboutForm.js'
 import ProjectsForm from '../portfolio/forms/projectsForm.js'
 import AboutDashboard from '../portfolio/dashboard/aboutDashboard.js'
 import WorkDashboard from '../portfolio/dashboard/workDashboard'
 import ProjectsDashboard from '../portfolio/dashboard/projectsDashboard'
+import './dashboard.css'
 
 const Home = () => {
 
   return (
-    <div>
+    <div className='dashboard'>
       <h1>
         Dashboard Homepage
       </h1>
@@ -21,24 +19,32 @@ const Home = () => {
       <h2>About</h2>
       <hr />
       <AboutForm />
-      <hr />
+      <br/>
       <AboutDashboard/>
-      
-      <hr />
-      <h2>Work</h2>
-      <hr />
-      <WorkForm />
-      <hr />
-      <WorkDashboard />
+      <br/>
+      <br/>
+      <br/>
       
       <hr />
       <h2>Projects</h2>
       <hr />
       <ProjectsForm />
-      <hr />
+      <br/>
       <ProjectsDashboard/>
+      <br/>
+      <br/>
+      <br/>
+
       <hr />
+      <h2>Work Experience</h2>
       <hr />
+      <WorkForm />
+      <br/>
+      <WorkDashboard />
+      <br/>
+      <br/>
+      <br/>
+
       <button onClick={() => auth.signOut()}>Sign out</button>
 
     </div>

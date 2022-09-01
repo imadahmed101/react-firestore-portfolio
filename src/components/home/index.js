@@ -1,11 +1,10 @@
-import Projects from '../portfolio/projects.js'
-import About from '../portfolio/about.js'
-import Work from '../portfolio/work.js'
+import Projects from '../portfolio/views/projects.js'
+import About from '../portfolio/views/about.js'
+import Work from '../portfolio/views/work.js'
 
 const Home = () => {
   return (
-    <div>
-      <h1>Homepage</h1>
+    <div className='home'>
       <About/>
       <Projects/>
       <Work/>

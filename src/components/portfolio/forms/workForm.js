@@ -19,7 +19,7 @@ const WorkForm = () => {
         <br/>
         <input placeholder="Role Name..." onChange={(event) => {setNewRole(event.target.value)}}/>
         <br/>
-        <input type="number" placeholder="Start Date..." onChange={(event) => {setNewWorkDate(event.target.value)}}/>
+        <input type="number" placeholder="Years of Employment..." onChange={(event) => {setNewWorkDate(event.target.value)}}/>
         <br/>
         <button onClick={createWork}>Add Job</button>
 

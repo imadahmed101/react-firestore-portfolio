@@ -1,0 +1,19 @@
+.projects {
+    min-height: 600px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.projects-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 80px;
+    margin: 80px 20px;
+}
+
+@media only screen and (max-width: 1000px) { 
+    .projects-list{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}

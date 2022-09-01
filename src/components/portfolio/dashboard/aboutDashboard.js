@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import AboutUpdate from '../update/aboutUpdate.js'
 
 const AboutDashboard = () => {    
     const [about, setAbout] = useState([]);
@@ -8,7 +9,17 @@ const AboutDashboard = () => {
     const [newDescription, setNewDescription] = useState('');
     const aboutRef = collection(db, "about");
 
-
+/*
+    const handleEdit = (id) => {
+        console.log(id);
+        return(
+            <div>
+            <input placeholder="Update Name..." onChange={(event) => {setNewName(event.target.value)}}/>
+            <button onClick={() => {updateName(id);}}>Update name</button>
+            </div>
+        )
+    }
+*/
     const updateName = async (id) => {
         const userDoc = doc(db, "about", id);
         const newFields = {name: newName};
@@ -65,3 +76,5 @@ const AboutDashboard = () => {
 }
 
 export default AboutDashboard
+//future addition to make edit a modal screen
+//<button onClick={() => handleEdit(abot.id)}>Edit</button>

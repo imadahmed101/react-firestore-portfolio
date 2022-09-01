@@ -5,6 +5,7 @@ import './navbar.css'
 const Navbar = () => {
   return (
     <div className="navbar">
+      <span className='navbaritem'>Portfolio</span>
         <Link to="/" className='navbaritem'>Home</Link>
         <Link to="/dashboard"className='navbaritem'>Dashboard</Link>
         <Link to="/work"className='navbaritem'>Work</Link>

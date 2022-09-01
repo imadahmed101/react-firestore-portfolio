@@ -23,8 +23,6 @@ const Work = () => {
     useEffect(() => {
         const getWork = async () => {
             const data = await getDocs(workRef);
-            console.log(data, '1');
-            console.log(data.docs, '22');
             setWork(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
         getWork();
