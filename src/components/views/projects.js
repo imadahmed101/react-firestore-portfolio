@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../../firebase'
-import './projects.css'
+//import './projects.css'
 
 const Portfolio = () => {
     const [portfolio, setPortfolio] = useState([]);

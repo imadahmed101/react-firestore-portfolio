@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+//import './contact.css'
 
-const ContactDashboard = () => {    
+const Contact = () => {    
     const [contacts, setContacts] = useState([]);
     const [newCompany, setNewCompany] = useState('');
     const [newRole, setNewRole] = useState('');
@@ -33,14 +34,14 @@ const ContactDashboard = () => {
         window.location.reload(false);
 
     }
-    */
 
-    const deleteContact = async (id) => {
-        const userDoc = doc(db, "contact", id);
+    const deleteWork = async (id) => {
+        const userDoc = doc(db, "work", id);
         await deleteDoc(userDoc);
         window.location.reload(false);
 
     }
+*/
 
     useEffect(() => {
         const getContacts = async () => {
@@ -51,22 +52,22 @@ const ContactDashboard = () => {
     }, []);
 
   return (
-    <div>
-        <h3>Contact Section</h3>
+    <div className='contact'>
+        <h1>Contact Me</h1>
+        <div className='contact-list'>
         {contacts.map((contact) => {
             return (
                 <div>
-                    <p>Button Name: {contact.name}</p>
-                    <p>Url: {contact.url}</p>
-                    <button onClick={() => {deleteContact(contact.id)}}>Delete Contact</button>
+                    <button onClick={() => window.open(contact.url)}>{contact.name}</button>
                 </div>
             )
         })}
+        </div>
     </div>
   )
 }
 
-export default ContactDashboard
+export default Contact
             /*
             <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
             <button onClick={() => {updateName(wrk.id);}}>Update Company</button>
@@ -76,4 +77,6 @@ export default ContactDashboard
             <br/>
             <input type="number" placeholder="Update Age..." onChange={(event) => {setNewAge(event.target.value)}}/>
             <button onClick={() => {updateAge(wrk.id);}}>Update Age</button>
+            <br/>
+            <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>
             */

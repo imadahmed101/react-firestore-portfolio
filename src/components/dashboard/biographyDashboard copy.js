@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import {db} from '../../../firebase'
+import {db} from '../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
-import './biography.css'
 
-const Biography = () => {    
+const BiographyDashboard = () => {    
     const [biography, setBiography] = useState([]);
     const [newCompany, setNewCompany] = useState('');
     const [newRole, setNewRole] = useState('');
@@ -34,14 +33,14 @@ const Biography = () => {
         window.location.reload(false);
 
     }
+    */
 
-    const deleteWork = async (id) => {
-        const userDoc = doc(db, "work", id);
+    const deleteBiography = async (id) => {
+        const userDoc = doc(db, "biography", id);
         await deleteDoc(userDoc);
         window.location.reload(false);
 
     }
-*/
 
     useEffect(() => {
         const getBiography = async () => {
@@ -52,13 +51,13 @@ const Biography = () => {
     }, []);
 
   return (
-    <div className='biography'>
-        <h1>About Me</h1>
+    <div>
+        <h3>Biography Section</h3>
         {biography.map((bio) => {
             return (
                 <div>
-                    <h2>{bio.biography}</h2>
-                    <br/>
+                    <p>Bio: {bio.biography}</p>
+<button onClick={() => {deleteBiography(bio.id)}}>Delete Biography</button>
                 </div>
             )
         })}
@@ -66,7 +65,7 @@ const Biography = () => {
   )
 }
 
-export default Biography
+export default BiographyDashboard
             /*
             <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
             <button onClick={() => {updateName(wrk.id);}}>Update Company</button>
@@ -77,5 +76,4 @@ export default Biography
             <input type="number" placeholder="Update Age..." onChange={(event) => {setNewAge(event.target.value)}}/>
             <button onClick={() => {updateAge(wrk.id);}}>Update Age</button>
             <br/>
-            <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>
             */

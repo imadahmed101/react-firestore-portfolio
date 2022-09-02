@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
-import './skills.css'
+//import './biography.css'
 
-const Skills = () => {    
-    const [skills, setSkills] = useState([]);
+const Biography = () => {    
+    const [biography, setBiography] = useState([]);
     const [newCompany, setNewCompany] = useState('');
     const [newRole, setNewRole] = useState('');
     const [newAge, setNewAge] = useState(0);
-    const skillsRef = collection(db, "skills");
+    const biographyRef = collection(db, "biography");
 
 /*
     const updateName = async (id) => {
@@ -44,20 +44,21 @@ const Skills = () => {
 */
 
     useEffect(() => {
-        const getSkills = async () => {
-            const data = await getDocs(skillsRef);
-            setSkills(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        const getBiography = async () => {
+            const data = await getDocs(biographyRef);
+            setBiography(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
-        getSkills();
+        getBiography();
     }, []);
 
   return (
-    <div className='skills'>
-        <h1>Skills</h1>
-        {skills.map((skill) => {
+    <div className='biography'>
+        <h1>About Me</h1>
+        {biography.map((bio) => {
             return (
                 <div>
-                    <h2>{skill.name}</h2>
+                    <h2>{bio.biography}</h2>
+                    <br/>
                 </div>
             )
         })}
@@ -65,7 +66,7 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default Biography
             /*
             <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
             <button onClick={() => {updateName(wrk.id);}}>Update Company</button>

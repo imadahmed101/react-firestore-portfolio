@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import {db} from '../../../firebase'
+import {db} from '../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
-import AboutUpdate from '../update/aboutUpdate.js'
 
 const AboutDashboard = () => {    
     const [about, setAbout] = useState([]);

@@ -1,17 +1,17 @@
 import { useRef } from 'react'
-import { storage, db } from '../../../firebase'
+import { storage, db } from '../../firebase'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { collection, addDoc } from 'firebase/firestore'
 
-const AboutForm = () => {
-  
-  const aboutForm = useRef();
+const ProjectsForm = () => {
+  const form = useRef();
 
-  const submitAbout = (e) => {
+  const submitPortfolio = (e) => {
     e.preventDefault();
-    const name = aboutForm.current[0]?.value;
-    const description = aboutForm.current[1]?.value;
-    const image = aboutForm.current[2]?.files[0];
+    const name = form.current[0]?.value;
+    const description = form.current[1]?.value;
+    const url = form.current[2]?.value;
+    const image = form.current[3]?.files[0];
 
     const storageRef = ref(storage, `portfolio/${image.name}`);
 
@@ -19,23 +19,26 @@ const AboutForm = () => {
       (snapshot) => {
         getDownloadURL(snapshot.ref).then(
           (downloadUrl) => {
-            saveAbout({
+            savePortfolio({
               name,
               description,
+              url,
               image: downloadUrl
             })
           }, () => {
-            saveAbout({
+            savePortfolio({
               name,
               description,
+              url,
               image: null
             })
 
           })
       }, () => {
-        saveAbout({
+        savePortfolio({
           name,
           description,
+          url,
           image: null
         })
 
@@ -43,32 +46,35 @@ const AboutForm = () => {
     )
   }
 
-  const saveAbout = async (portfolio) => {
+  const savePortfolio = async (portfolio) => {
     console.log(portfolio);
     try {
-      await addDoc(collection(db, 'about'), portfolio);
+      await addDoc(collection(db, 'portfolio'), portfolio);
 
       window.location.reload(false);
     }
     catch (error) {
       console.log(error);
-      alert('Failed to add about section');
+      alert('Failed to add portfolio');
     }
   }
 
+
   return (
     <div>
-      <h3>About Form</h3>
 
-      <form ref={aboutForm} onSubmit={submitAbout}>
+      <h3>Project Form</h3>
+
+      <form ref={form} onSubmit={submitPortfolio}>
         <input type="text" placeholder="Name" />
         <br />
         <textarea placeholder="Description" />
         <br />
+        <input type="text" placeholder="URL" />
+        <br />
         <input type="file" placeholder="Image" />
         <br />
         <button type="submit">Submit</button>
-        <br />
 
       </form>
 
@@ -76,4 +82,4 @@ const AboutForm = () => {
   )
 }
 
-export default AboutForm
+export default ProjectsForm

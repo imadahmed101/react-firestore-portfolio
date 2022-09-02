@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+//import './skills.css'
 
-const BiographyDashboard = () => {    
-    const [biography, setBiography] = useState([]);
+const Skills = () => {    
+    const [skills, setSkills] = useState([]);
     const [newCompany, setNewCompany] = useState('');
     const [newRole, setNewRole] = useState('');
     const [newAge, setNewAge] = useState(0);
-    const biographyRef = collection(db, "biography");
+    const skillsRef = collection(db, "skills");
 
 /*
     const updateName = async (id) => {
@@ -33,31 +34,30 @@ const BiographyDashboard = () => {
         window.location.reload(false);
 
     }
-    */
 
-    const deleteBiography = async (id) => {
-        const userDoc = doc(db, "biography", id);
+    const deleteWork = async (id) => {
+        const userDoc = doc(db, "work", id);
         await deleteDoc(userDoc);
         window.location.reload(false);
 
     }
+*/
 
     useEffect(() => {
-        const getBiography = async () => {
-            const data = await getDocs(biographyRef);
-            setBiography(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        const getSkills = async () => {
+            const data = await getDocs(skillsRef);
+            setSkills(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
-        getBiography();
+        getSkills();
     }, []);
 
   return (
-    <div>
-        <h3>Biography Section</h3>
-        {biography.map((bio) => {
+    <div className='skills'>
+        <h1>Skills</h1>
+        {skills.map((skill) => {
             return (
                 <div>
-                    <p>Bio: {bio.biography}</p>
-<button onClick={() => {deleteBiography(bio.id)}}>Delete Biography</button>
+                    <h2>{skill.name}</h2>
                 </div>
             )
         })}
@@ -65,7 +65,7 @@ const BiographyDashboard = () => {
   )
 }
 
-export default BiographyDashboard
+export default Skills
             /*
             <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
             <button onClick={() => {updateName(wrk.id);}}>Update Company</button>
@@ -76,4 +76,5 @@ export default BiographyDashboard
             <input type="number" placeholder="Update Age..." onChange={(event) => {setNewAge(event.target.value)}}/>
             <button onClick={() => {updateAge(wrk.id);}}>Update Age</button>
             <br/>
+            <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>
             */

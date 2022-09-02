@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../../firebase'
 import {collection, getDocs} from 'firebase/firestore'
-import './work.css'
+//import './work.css'
 
 const Work = () => {    
     const [work, setWork] = useState([]);
