@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
-import { db } from '../../../firebase'
+import { db } from '../../firebase'
 //import './about.css'
 
 const About = () => {

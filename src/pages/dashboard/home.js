@@ -1,17 +1,8 @@
 import { auth } from '../../firebase'
-import WorkForm from '../../components/forms/workForm.js'
-import AboutForm from '../../components/forms/aboutForm.js'
-import ProjectsForm from '../../components/forms/projectsForm.js'
-import AboutDashboard from '../../components/dashboard/aboutDashboard.js'
-import WorkDashboard from '../../components/dashboard/workDashboard'
-import ProjectsDashboard from '../../components/dashboard/projectsDashboard'
+import { AboutForm, BiographyForm, ContactForm, ProjectsForm, SkillsForm, WorkForm } from '../../components/forms/'
+import { AboutDashboard, BiographyDashboard, ContactDashboard, ProjectsDashboard, SkillsDashboard, WorkDashboard } from '../../components/dashboard/'
 //import './dashboard.css'
-import SkillsForm from '../../components/forms/skillsForm'
-import SkillsDashboard from '../../components/dashboard/skillsDashboard'
-import BiographyForm from '../../components/forms/biographyForm'
-import BiographyDashboard from '../../components/dashboard/biographyDashboard copy'
-import ContactForm from '../../components/forms/contactForm'
-import ContactDashboard from '../../components/dashboard/contactDashboard'
+
 
 const Home = () => {
 

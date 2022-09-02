@@ -1,0 +1,6 @@
+export {default as AboutForm} from './aboutForm'
+export {default as BiographyForm} from './biographyForm'
+export {default as ContactForm} from './contactForm'
+export {default as ProjectsForm} from './projectsForm'
+export {default as SkillsForm} from './skillsForm'
+export {default as WorkForm} from './workForm'

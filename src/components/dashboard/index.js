@@ -1,0 +1,6 @@
+export {default as AboutDashboard} from './aboutDashboard'
+export {default as BiographyDashboard} from './biographyDashboard'
+export {default as ContactDashboard} from './contactDashboard'
+export {default as ProjectsDashboard} from './projectsDashboard'
+export {default as SkillsDashboard} from './skillsDashboard'
+export {default as WorkDashboard} from './workDashboard'
