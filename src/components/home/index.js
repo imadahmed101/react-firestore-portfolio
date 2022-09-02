@@ -3,6 +3,7 @@ import About from '../portfolio/views/about.js'
 import Work from '../portfolio/views/work.js'
 import Skills from '../portfolio/views/skills.js'
 import Biography from '../portfolio/views/biography.js'
+import Contact from '../portfolio/views/contact.js'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Skills/>
       <Projects/>
       <Work/>
+      <Contact/>
     </div>
   )
 }

@@ -10,6 +10,8 @@ import SkillsForm from '../portfolio/forms/skillsForm'
 import SkillsDashboard from '../portfolio/dashboard/skillsDashboard'
 import BiographyForm from '../portfolio/forms/biographyForm'
 import BiographyDashboard from '../portfolio/dashboard/biographyDashboard copy'
+import ContactForm from '../portfolio/forms/contactForm'
+import ContactDashboard from '../portfolio/dashboard/contactDashboard'
 
 const Home = () => {
 
@@ -65,6 +67,16 @@ const Home = () => {
       <WorkForm />
       <br/>
       <WorkDashboard />
+      <br/>
+      <br/>
+      <br/>
+
+      <hr />
+      <h2>Contact</h2>
+      <hr />
+      <ContactForm />
+      <br/>
+      <ContactDashboard />
       <br/>
       <br/>
       <br/>

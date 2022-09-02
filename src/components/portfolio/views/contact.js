@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import './contact.css'
 
-const BiographyDashboard = () => {    
-    const [biography, setBiography] = useState([]);
+const Contact = () => {    
+    const [contacts, setContacts] = useState([]);
     const [newCompany, setNewCompany] = useState('');
     const [newRole, setNewRole] = useState('');
     const [newAge, setNewAge] = useState(0);
-    const biographyRef = collection(db, "biography");
+    const contactRef = collection(db, "contact");
 
 /*
     const updateName = async (id) => {
@@ -33,39 +34,40 @@ const BiographyDashboard = () => {
         window.location.reload(false);
 
     }
-    */
 
-    const deleteBiography = async (id) => {
-        const userDoc = doc(db, "biography", id);
+    const deleteWork = async (id) => {
+        const userDoc = doc(db, "work", id);
         await deleteDoc(userDoc);
         window.location.reload(false);
 
     }
+*/
 
     useEffect(() => {
-        const getBiography = async () => {
-            const data = await getDocs(biographyRef);
-            setBiography(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        const getContacts = async () => {
+            const data = await getDocs(contactRef);
+            setContacts(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
-        getBiography();
+        getContacts();
     }, []);
 
   return (
-    <div>
-        <h3>Biography Section</h3>
-        {biography.map((bio) => {
+    <div className='contact'>
+        <h1>Contact Me</h1>
+        <div className='contact-list'>
+        {contacts.map((contact) => {
             return (
                 <div>
-                    <p>Bio: {bio.biography}</p>
-<button onClick={() => {deleteBiography(bio.id)}}>Delete Biography</button>
+                    <button onClick={() => window.open(contact.url)}>{contact.name}</button>
                 </div>
             )
         })}
+        </div>
     </div>
   )
 }
 
-export default BiographyDashboard
+export default Contact
             /*
             <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
             <button onClick={() => {updateName(wrk.id);}}>Update Company</button>
@@ -76,4 +78,5 @@ export default BiographyDashboard
             <input type="number" placeholder="Update Age..." onChange={(event) => {setNewAge(event.target.value)}}/>
             <button onClick={() => {updateAge(wrk.id);}}>Update Age</button>
             <br/>
+            <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>
             */
