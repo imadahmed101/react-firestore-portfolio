@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../firebase'
 import {collection, getDocs} from 'firebase/firestore'
+import { Container, Typography } from '@mui/material';
 //import './work.css'
 
 const Work = () => {    
@@ -16,19 +17,18 @@ const Work = () => {
     }, []);
 
   return (
-    <div className='work'>
-        <h1>Work Experience</h1>
+    <Container>
+        <Typography variant="h4" mb="25px">Work Experience</Typography>
         {work.map((wrk) => {
             return (
-                <div>
-                    <h2>{wrk.name}</h2>
-                    <h4>{wrk.role}</h4>
-                    <h4>Years of Employment: {wrk.age}</h4>
-                    <br/>
-                </div>
+                <Container>
+                    <Typography variant="h6">{wrk.name}</Typography>
+                    <Typography variant="h6">{wrk.role}</Typography>
+                    <Typography variant="h6" mb="25px">Years of Employment: {wrk.age}</Typography>
+                </Container>
             )
         })}
-    </div>
+    </Container>
   )
 }
 
