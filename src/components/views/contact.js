@@ -19,7 +19,7 @@ const Contact = () => {
     return (
         <Container >
             <Typography variant="h4">Contact Me</Typography>
-            <Container sx={{display: "flex", justifyContent:"center", flexDirection:{xs: "row"}}}>
+            <Container sx={{justifyContent:"center", display: {xs: "flex", md: "inline-grid"}}}>
             {contacts.map((contact) => {
                 return (
                         <Button sx={{m: "5px", color: "white", backgroundColor: "black"}} variant="contained" onClick={() => window.open(contact.url)}>{contact.name}</Button>

@@ -17,15 +17,15 @@ const Skills = () => {
     }, []);
 
   return (
-    <Container sx={{mb: "30px"}}>
+    <Container sx={{mb: "30px", textAlign: "center"}}>
         <Typography variant="h4">Skills</Typography>
+        <Container sx={{display: {md: "flex"}, justifyContent:"center"}}>
         {skills.map((skill) => {
             return (
-                <div>
-                    <Typography variant="h6">{skill.name}</Typography>
-                </div>
+                    <Typography sx={{m: {md: "5px"}}} variant="h6">{skill.name}</Typography>
             )
         })}
+        </Container>
     </Container>
   )
 }

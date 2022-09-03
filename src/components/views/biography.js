@@ -17,7 +17,7 @@ const Biography = () => {
     }, []);
 
     return (
-        <Container>
+        <Container sx={{textAlign: "center"}}>
             <Typography variant="h4">About Me</Typography>
             {biography.map((bio) => {
                 return (
