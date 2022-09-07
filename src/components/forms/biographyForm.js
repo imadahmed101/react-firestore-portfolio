@@ -8,6 +8,8 @@ const BiographyForm = () => {
 
     const createBiography = async () => {
         await addDoc(biographyRef, {biography: newBiography});
+        alert('Added Biography Section')
+        window.location.reload(false);
     }
 
   return (

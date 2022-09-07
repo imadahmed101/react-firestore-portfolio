@@ -50,7 +50,7 @@ const ProjectsForm = () => {
     console.log(portfolio);
     try {
       await addDoc(collection(db, 'portfolio'), portfolio);
-
+      alert('Added Projects section');
       window.location.reload(false);
     }
     catch (error) {

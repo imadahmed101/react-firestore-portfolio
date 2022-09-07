@@ -3,13 +3,13 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import Home from './home';
 import Login from '../login';
 
-const Dashboard  = () => {
+const Dashboard = () => {
   const [user, setUser] = useState(null);
   const auth = getAuth();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if(user){
+      if (user) {
         setUser(user);
       }
       else {
@@ -20,7 +20,7 @@ const Dashboard  = () => {
 
   return (
     <div>
-        {user ? <Home /> : <Login />}
+      {user ? <Home /> : <Login />}
     </div>
   )
 }

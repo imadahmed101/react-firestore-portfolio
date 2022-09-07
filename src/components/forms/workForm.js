@@ -10,6 +10,10 @@ const WorkForm = () => {
 
     const createWork = async () => {
         await addDoc(workRef, {name: newWork, role: newRole, age: Number(newWorkDate)});
+        alert('Added Work section');
+        window.location.reload(false);
+
+
     }
 
   return (

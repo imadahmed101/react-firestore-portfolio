@@ -10,6 +10,7 @@ const ContactForm = () => {
 
     const createContact = async () => {
         await addDoc(contactRef, {name: newContact, url: newUrl});
+        alert('Added Contact Section')
         window.location.reload(false);
     }
 

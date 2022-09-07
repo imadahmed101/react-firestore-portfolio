@@ -10,6 +10,7 @@ const SkillsForm = () => {
 
     const createSkills = async () => {
         await addDoc(skillsRef, {name: newSkill});
+        alert('Added Skills section');
         window.location.reload(false);
     }
 

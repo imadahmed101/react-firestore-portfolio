@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
 import { Container, Grid, Typography, Button, Box } from '@mui/material';
-//import './about.css'
-import {Contact} from '../views/index'
+import { Contact } from '../views/index'
 
 const About = () => {
   const [about, setAbout] = useState([]);
@@ -29,7 +28,7 @@ const About = () => {
             </Container>
           )
         })}
-        
+
       </Container>
     )
   }
