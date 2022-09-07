@@ -11,7 +11,7 @@ html, body {
     min-height: 100%;
     width: cover;
 }
-*/
+
 body {
     background: radial-gradient(at top left, rgb(43, 116, 225) 0%, rgb(9, 48, 107) 100%);
     background-repeat: no-repeat;
@@ -19,7 +19,7 @@ body {
     color: white;
 }
 
-/*
+
 h1, h2, h3 {
     color: white;
 }

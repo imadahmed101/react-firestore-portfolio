@@ -3,11 +3,18 @@ import { About, Biography, Contact, Projects, Skills, Work } from '../../compone
 
 const Home = () => {
   return (
-    <Box sx={{ margin: "0px 30px" }}>
-      <About />
+    <Box /*sx={{ margin: "0px 30px" }}*/>
+      <About/>
       <Biography />
-      <Skills/>
       <Projects/>
+      <Contact/>
+    </Box>
+  )
+}
+
+export default Home
+
+/*    <Skills/>
       <Grid container spacing={2}  sx={{textAlign: "center"}}>
       <Grid item xs={12} md={6}>
       <Work />
@@ -16,8 +23,5 @@ const Home = () => {
       <Contact />
       </Grid>
       </Grid>
-    </Box>
-  )
-}
 
-export default Home
+      */

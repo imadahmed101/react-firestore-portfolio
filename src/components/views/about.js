@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
-import { Container, Grid, Typography, Button } from '@mui/material';
+import { Container, Grid, Typography, Button, Box } from '@mui/material';
 //import './about.css'
+import {Contact} from '../views/index'
 
 const About = () => {
   const [about, setAbout] = useState([]);
@@ -21,28 +22,22 @@ const About = () => {
       <Container>
         {about.map((port, idx) => {
           return (
-            <Grid container spacing={2} sx={{textAlign: "center", minHeight: "600px", height: "80vh", alignItems: "center"}}>
-              <Grid item xs={12} md={6}>
-                <Typography variant="h3" component="h1" mb="25px">{port.name}</Typography>
-                <Typography variant="h4" component="h2" mb='50px'>{port.description}</Typography>
-                <Button sx={{color: "white", backgroundColor: "black"}} variant="contained" href="/#projects">View Projects</Button>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Container>
-                <img src={port.image} style={{ height: "200px"}}/>
-                </Container>
-              </Grid>
-            </Grid>
+            <Container>
+              <Typography variant="h1">{port.name}</Typography>
+              <Typography variant="h6" mb="50px">{port.description}</Typography>
+              <Button variant="outlined" href="/#projects" sx={{ backgroundColor: "black", borderColor: "white", color: "white" }}>View Projects</Button>
+            </Container>
           )
         })}
+        
       </Container>
     )
   }
 
   return (
-    <div>
+    <Box sx={{ backgroundImage: `url(/images/3.jpg)`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "100vh", minHeight: "450px", backgroundSize: "cover", display: "flex", alignItems: "center", textAlign: "center", color: "white" }}>
       {renderAbout(about)}
-    </div>
+    </Box>
   )
 }
 

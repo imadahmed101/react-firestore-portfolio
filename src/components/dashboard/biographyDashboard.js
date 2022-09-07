@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import {Button, Container, Box, Typography} from "@mui/material"
+
 
 const BiographyDashboard = () => {    
     const [biography, setBiography] = useState([]);
@@ -51,17 +53,19 @@ const BiographyDashboard = () => {
     }, []);
 
   return (
-    <div>
-        <h3>Biography Section</h3>
+    <Container sx={{border: "1px solid"}}>
+        <Box sx={{m: "100px"}}>
+        <Typography variant="h4">Biography Section</Typography>
         {biography.map((bio) => {
             return (
                 <div>
                     <p>Bio: {bio.biography}</p>
-<button onClick={() => {deleteBiography(bio.id)}}>Delete Biography</button>
+<Button onClick={() => {deleteBiography(bio.id)}}>Delete Biography</Button>
                 </div>
             )
         })}
-    </div>
+    </Box>
+    </Container>
   )
 }
 

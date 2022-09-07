@@ -18,11 +18,11 @@ const Skills = () => {
 
   return (
     <Container sx={{mb: "30px", textAlign: "center"}}>
-        <Typography variant="h4">Skills</Typography>
+        <Typography variant="h3">Skills</Typography>
         <Container sx={{display: {md: "flex"}, justifyContent:"center"}}>
         {skills.map((skill) => {
             return (
-                    <Typography sx={{m: {md: "5px"}}} variant="h6">{skill.name}</Typography>
+                    <Typography sx={{m: {md: "5px"}}} variant="h4">{skill.name}</Typography>
             )
         })}
         </Container>

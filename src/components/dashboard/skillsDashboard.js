@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase'
 import { collection, getDocs, updateDoc, doc, deleteDoc } from 'firebase/firestore'
+import {Button, Container, Box, Typography} from "@mui/material"
+
 
 const SkillsDashboard = () => {
     const [skills, setSkills] = useState([]);
@@ -51,17 +53,18 @@ const SkillsDashboard = () => {
     }, []);
 
     return (
-        <div>
-            <h3>Skills Section</h3>
+        <Container sx={{border: "1px solid"}}>
+        <Box sx={{m: "100px"}}>
+            <Typography variant="h4">Skills Section</Typography>
             {skills.map((skill) => {
                 return (
                     <div>
-                        <p> - {skill.name}</p>
-                        <button onClick={() => { deleteSkill(skill.id) }}>Delete Skill</button>
+                        <Typography variant="p"> - {skill.name}</Typography>
+                        <Button onClick={() => { deleteSkill(skill.id) }}>Delete Skill</Button>
                     </div>
                 )
             })}
-        </div>
+        </Box></Container>
     )
 }
 

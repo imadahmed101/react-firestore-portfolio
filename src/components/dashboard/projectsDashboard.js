@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase'
 import { collection, getDocs, updateDoc, doc, deleteDoc } from 'firebase/firestore'
+import {Button, Container, Box, Typography} from "@mui/material"
+
 
 const ProjectsDashboard = () => {
     const [projects, setProjects] = useState([]);
@@ -59,27 +61,29 @@ const ProjectsDashboard = () => {
     }, []);
 
     return (
-        <div>
-            <h3>Projects Section</h3>
+        <Container sx={{border: "1px solid"}}>
+        <Box sx={{m: "100px"}}>
+            <Typography variant="h4">Projects Section</Typography>
             {projects.map((project) => {
                 return (
                     <div>
                         {" "}
-                        <p>Name: {project.name}</p>
-                        <p>Description: {project.description}</p>
+                        <Typography variant="p">Name: {project.name}</Typography>
+                        <Typography variant="p">Description: {project.description}</Typography>
                         <br />
                         <input placeholder="Update Project..." onChange={(event) => { setNewProject(event.target.value) }} />
-                        <button onClick={() => { updateName(project.id); }}>Update Project</button>
+                        <Button onClick={() => { updateName(project.id); }}>Update Project</Button>
                         <br />
                         <textarea placeholder="Update Description..." onChange={(event) => { setNewDescription(event.target.value) }} />
-                        <button onClick={() => { updateDescription(project.id); }}>Update Description</button>
+                        <Button onClick={() => { updateDescription(project.id); }}>Update Description</Button>
                         <br />
-                        <button onClick={() => { deleteProject(project.id) }}>Delete Project</button>
+                        <Button onClick={() => { deleteProject(project.id) }}>Delete Project</Button>
                         <br />
                     </div>
                 )
             })}
-        </div>
+        </Box>
+        </Container>
     )
 }
 

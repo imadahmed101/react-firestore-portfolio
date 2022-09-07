@@ -2,18 +2,19 @@ import { auth } from '../../firebase'
 import { AboutForm, BiographyForm, ContactForm, ProjectsForm, SkillsForm, WorkForm } from '../../components/forms/'
 import { AboutDashboard, BiographyDashboard, ContactDashboard, ProjectsDashboard, SkillsDashboard, WorkDashboard } from '../../components/dashboard/'
 //import './dashboard.css'
+import {Container, Typography, Button} from '@mui/material'
 
 
 const Home = () => {
 
   return (
-    <div className='dashboard'>
-      <h1>
+    <Container>
+      <Typography variant="h1">
         Dashboard Homepage
-      </h1>
+      </Typography>
       
       <hr />
-      <h2>About</h2>
+      <Typography variant="h3">About</Typography>
       <hr />
       <AboutForm />
       <br/>
@@ -23,7 +24,7 @@ const Home = () => {
       <br/>
 
       <hr />
-      <h2>Biography</h2>
+      <Typography variant="h3">Biography</Typography>
       <hr />
       <BiographyForm />
       <br/>
@@ -33,7 +34,7 @@ const Home = () => {
       <br/>
 
       <hr />
-      <h2>Skills</h2>
+      <Typography variant="h3">Dkills</Typography>
       <hr />
       <SkillsForm />
       <br/>
@@ -43,7 +44,7 @@ const Home = () => {
       <br/>
       
       <hr />
-      <h2>Projects</h2>
+      <Typography variant="h3">Projects</Typography>
       <hr />
       <ProjectsForm />
       <br/>
@@ -53,7 +54,7 @@ const Home = () => {
       <br/>
 
       <hr />
-      <h2>Work Experience</h2>
+      <Typography variant="h3">Experience</Typography>>
       <hr />
       <WorkForm />
       <br/>
@@ -63,7 +64,7 @@ const Home = () => {
       <br/>
 
       <hr />
-      <h2>Contact</h2>
+      <Typography variant="h3">Contact</Typography>
       <hr />
       <ContactForm />
       <br/>
@@ -72,9 +73,10 @@ const Home = () => {
       <br/>
       <br/>
 
-      <button onClick={() => auth.signOut()}>Sign out</button>
+      <Button onClick={() => auth.signOut()}>Sign out</Button>
+      <Button href="/">HomePage</Button>
 
-    </div>
+    </Container>
   )
 }
 

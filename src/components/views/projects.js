@@ -1,43 +1,48 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
-import { Container, Grid, Typography, Button} from '@mui/material';
+import { Container, Grid, Typography, Button, Box } from '@mui/material';
 //import './projects.css'
 
 const Portfolio = () => {
-    const [portfolio, setPortfolio] = useState([]);
+  const [portfolio, setPortfolio] = useState([]);
 
-    useEffect(() => {
-        getPortfolio();
-    }, [])
+  useEffect(() => {
+    getPortfolio();
+  }, [])
 
-    const getPortfolio = async () => {
-        const querySnapshot = await getDocs(collection(db, 'portfolio'));
-        setPortfolio(querySnapshot.docs.map((doc)=> doc.data()));
-    }
+  const getPortfolio = async () => {
+    const querySnapshot = await getDocs(collection(db, 'portfolio'));
+    setPortfolio(querySnapshot.docs.map((doc) => doc.data()));
+  }
 
-    const renderPortfolio = (portfolio) => {
-      return (
-          <Grid container spacing={2} sx={{textAlign: "center", alignItems: "center"}}>
+  const renderPortfolio = (portfolio) => {
+    return (
+      <Box  id="projects">
           {portfolio.map((port, idx) => {
-            return(
-              <Grid item xs={12} md={6} mb="50px">
-                <Typography variant="h5">{port.name}</Typography>
-                <img src={port.image} height="300px" width="300px"/>
+            return (
+                <Box sx={{ background: "radial-gradient(at top left, rgb(81, 89, 102) 0%, rgb(49, 50, 59) 100%)", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", textAlign: "center", color: "white" }}>
+              <Container>
+                <Typography variant="h3">{port.name}</Typography>
+                <Container>
+                  <img src={port.image} height="350px" width="350px" />
+                </Container>
                 <Typography variant="h6">{port.description}</Typography>
-                <Button sx={{mt: "5px", color: "white", backgroundColor: "black"}} variant="contained" onClick={() => window.open(port.url)}>View</Button>
-              </Grid>
+                <Button variant="outlined" sx={{ color: "white", borderColor: "white" }}>View More</Button>
+
+              </Container>
+          </Box >
             )
-          })}
-          </Grid>
-      )
-    }
+          })
+          }
+        </Box >
+    )
+  }
 
   return (
-      <Container sx={{textAlign: "center"}}>
-        <Typography id="projects" variant="h4">Projects</Typography>
-        {renderPortfolio(portfolio)}
-      </Container>
+    <Box>
+      {renderPortfolio(portfolio)}
+    </Box>
   )
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import {Button, Container, Box, Typography} from "@mui/material"
 
 const ContactDashboard = () => {    
     const [contacts, setContacts] = useState([]);
@@ -51,18 +52,21 @@ const ContactDashboard = () => {
     }, []);
 
   return (
-    <div>
-        <h3>Contact Section</h3>
+    <Container sx={{border: "1px solid"}}>
+        <Box sx={{m: "100px"}}>
+        <Typography variant="h4">Contact Section</Typography>
         {contacts.map((contact) => {
             return (
                 <div>
-                    <p>Button Name: {contact.name}</p>
-                    <p>Url: {contact.url}</p>
-                    <button onClick={() => {deleteContact(contact.id)}}>Delete Contact</button>
+                    <Typography variant="h6">Button Name: {contact.name}</Typography>
+                    <Typography variant="h6">Url: {contact.url}</Typography>
+                    <Button onClick={() => {deleteContact(contact.id)}}>Delete Contact</Button>
                 </div>
             )
         })}
-    </div>
+        
+        </Box>
+        </Container>
   )
 }
 

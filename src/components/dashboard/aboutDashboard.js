@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import {Button, Container, Box, Typography} from "@mui/material";
 
 const AboutDashboard = () => {    
     const [about, setAbout] = useState([]);
@@ -51,26 +52,30 @@ const AboutDashboard = () => {
     }, []);
 
   return (
-    <div>
-        <h3>About Section</h3>
+    <Container sx={{border: "1px solid"}}>
+        <Box sx={{m: "100px"}}>
+
+        <Typography variant="h4">About Section</Typography>
         {about.map((abot) => {
             return (
                 <div>
                     {" "}
-                    <p>Name: {abot.name}</p>
-                    <p>Description: {abot.description}</p>
+                    <Typography variant="p">Name: {abot.name}</Typography>
+                    <Typography variant="p">Description: {abot.description}</Typography>
                     <br/>
                     <input placeholder="Update Name..." onChange={(event) => {setNewName(event.target.value)}}/>
-                    <button onClick={() => {updateName(abot.id);}}>Update name</button>
+                    <Button onClick={() => {updateName(abot.id);}}>Update name</Button>
                     <br/>
                     <textarea placeholder="Update Description..." onChange={(event) => {setNewDescription(event.target.value)}}/>
-                    <button onClick={() => {updateDescription(abot.id);}}>Update Description</button>
+                    <Button onClick={() => {updateDescription(abot.id);}}>Update Description</Button>
                     <br/>
-                    <button onClick={() => {deleteAbout(abot.id)}}>Delete About</button>
+                    <Button onClick={() => {deleteAbout(abot.id)}}>Delete About</Button>
+                     
                 </div>
             )
         })}
-    </div>
+        </Box>
+    </Container>
   )
 }
 

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import {db} from '../../firebase'
 import {collection, getDocs, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import {Button, Container, Box, Typography} from "@mui/material"
+
 
 const WorkDashboard = () => {    
     const [work, setWork] = useState([]);
@@ -52,30 +54,32 @@ const WorkDashboard = () => {
     }, []);
 
   return (
-    <div>
-        <h3>Work Section</h3>
+    <Container sx={{border: "1px solid"}}>
+        <Box sx={{m: "100px"}}>
+        <Typography variant="p">Work Section</Typography>
         {work.map((wrk) => {
             return (
                 <div>
                     {" "}
-                    <p>Name: {wrk.name}</p>
-                    <p>Role: {wrk.role}</p>
-                    <p>Years Worked: {wrk.age}</p>
+                    <Typography variant="p">Name: {wrk.name}</Typography>
+                    <Typography variant="p">Role: {wrk.role}</Typography>
+                    <Typography variant="p">Years Worked: {wrk.age}</Typography>
                     <br/>
                     <input placeholder="Update Company..." onChange={(event) => {setNewCompany(event.target.value)}}/>
-                    <button onClick={() => {updateName(wrk.id);}}>Update Company</button>
+                    <Button onClick={() => {updateName(wrk.id);}}>Update Company</Button>
                     <br/>
                     <input placeholder="Update Role..." onChange={(event) => {setNewRole(event.target.value)}}/>
-                    <button onClick={() => {updateRole(wrk.id);}}>Update Role</button>
+                    <Button onClick={() => {updateRole(wrk.id);}}>Update Role</Button>
                     <br/>
                     <input type="number" placeholder="Update Years Worked..." onChange={(event) => {setNewAge(event.target.value)}}/>
-                    <button onClick={() => {updateAge(wrk.id);}}>Update Age</button>
+                    <Button onClick={() => {updateAge(wrk.id);}}>Update Age</Button>
                     <br/>
-                    <button onClick={() => {deleteWork(wrk.id)}}>Delete Work</button>
+                    <Button onClick={() => {deleteWork(wrk.id)}}>Delete Work</Button>
                 </div>
             )
         })}
-    </div>
+        </Box>
+    </Container>
   )
 }
 
