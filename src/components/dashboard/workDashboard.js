@@ -64,7 +64,9 @@ const WorkDashboard = () => {
                         <div>
                             {" "}
                             <Typography variant="p">Name: {wrk.name}</Typography>
+                            <br />
                             <Typography variant="p">Role: {wrk.role}</Typography>
+                            <br />
                             <Typography variant="p">Years Worked: {wrk.age}</Typography>
                             <br />
                             <input placeholder="Update Company..." onChange={(event) => { setNewCompany(event.target.value) }} />

@@ -31,8 +31,10 @@ const ResumeDashboard = () => {
                 {resume.map((cv) => {
                     return (
                         <div>
+                            <Typography variant="p">ID: {cv.id}</Typography>
+                            <br />
                             <Button onClick={() => { deleteResume(resume.id) }}>Delete Resume</Button>
-                            <br/>
+                            <br />
                         </div>
                     )
                 })}

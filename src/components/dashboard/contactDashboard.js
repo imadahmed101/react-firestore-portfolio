@@ -30,8 +30,10 @@ const ContactDashboard = () => {
                 {contacts.map((contact) => {
                     return (
                         <div>
-                            <Typography variant="h6">Button Name: {contact.name}</Typography>
-                            <Typography variant="h6">Url: {contact.url}</Typography>
+                            <Typography variant="p">Button Name: {contact.name}</Typography>
+                            <br />
+                            <Typography variant="p" sx={{wordWrap: "break-word"}}>Url: {contact.url}</Typography>
+                            <br />
                             <Button onClick={() => { deleteContact(contact.id) }}>Delete Contact</Button>
                         </div>
                     )
