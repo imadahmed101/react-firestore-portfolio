@@ -1,6 +1,6 @@
 import { auth } from '../../firebase'
-import { AboutForm, BiographyForm, ContactForm, ProjectsForm, SkillsForm, WorkForm } from '../../components/forms/'
-import { AboutDashboard, BiographyDashboard, ContactDashboard, ProjectsDashboard, SkillsDashboard, WorkDashboard } from '../../components/dashboard/'
+import { AboutForm, BiographyForm, ContactForm, ProjectsForm, ResumeForm, SkillsForm, WorkForm } from '../../components/forms/'
+import { AboutDashboard, BiographyDashboard, ContactDashboard, ProjectsDashboard, ResumeDashboard, SkillsDashboard, WorkDashboard } from '../../components/dashboard/'
 import { Container, Typography, Button } from '@mui/material'
 
 
@@ -33,6 +33,16 @@ const Home = () => {
       <br />
 
       <hr />
+      <Typography variant="h3">Resume</Typography>
+      <hr />
+      <ResumeForm />
+      <br />
+      <ResumeDashboard />
+      <br />
+      <br />
+      <br />
+
+      <hr />
       <Typography variant="h3">Skills</Typography>
       <hr />
       <SkillsForm />
@@ -53,7 +63,7 @@ const Home = () => {
       <br />
 
       <hr />
-      <Typography variant="h3">Experience</Typography>>
+      <Typography variant="h3">Experience</Typography>
       <hr />
       <WorkForm />
       <br />

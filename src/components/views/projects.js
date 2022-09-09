@@ -27,7 +27,7 @@ const Portfolio = () => {
                   <img src={port.image} height="350px" width="350px" />
                 </Container>
                 <Typography variant="h6">{port.description}</Typography>
-                <Button variant="outlined" sx={{ color: "white", borderColor: "white" }}>View More</Button>
+                <Button variant="outlined" sx={{ color: "white", borderColor: "white" }} onClick={() => window.open(port.url)} >View More</Button>
 
               </Container>
             </Box >

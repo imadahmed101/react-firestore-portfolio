@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebase'
 import { collection, getDocs } from 'firebase/firestore'
 import { Container, Typography, Box, Button } from '@mui/material';
-import { Skills, Work } from './index'
+import { Skills, Work, Resume } from './index'
 
 const Biography = () => {
     const [biography, setBiography] = useState([]);
@@ -25,7 +25,7 @@ const Biography = () => {
                         <Typography variant="h6" mb="50px">{bio.biography}</Typography>
                     )
                 })}
-                <Button variant="outlined" sx={{ color: "white", background: "black", borderColor: "white", mb: "50px" }}>View Resume</Button>
+                <Resume />
                 <Skills />
                 <Work />
             </Container>
